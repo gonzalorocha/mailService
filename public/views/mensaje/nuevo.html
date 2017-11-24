@@ -1,0 +1,72 @@
+<html ng-app="appMensajeNuevo">
+<head>
+  <meta charset="utf-8">
+  <title>Nuevo</title>
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.5/angular.min.js"></script>
+  <link href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
+  <link href="angucomplete-alt.css" rel="stylesheet">
+  <script src="angucomplete-alt.js"></script>
+  <script src="../../app.js"></script>
+  <script src="service/mensaje_service.js"></script>
+  <script src="nuevo.js"></script>
+
+</head >
+<body>
+  	<div class="panel-body message">
+      <div class="container">
+  		<form  ng-controller="mensajeNuevo as vm" class="form-horizontal" ng-submit="vm.submit()">
+        <p class="text-center">Nuevo</p>
+        <div class="form-group">
+  		    	<label for="para" class="col-sm-1 control-label">Para:</label>
+  		    	<div class="col-sm-11">
+                <angucomplete-alt id="ex1"
+                  placeholder="Para"
+                  pause="100"
+                  selected-object="vm.form.remitente"
+                  local-data="vm.usuarios"
+                  search-fields="mail"
+                  title-field="mail"
+                  minlength="1"
+                  input-class="form-control form-control-small"/>
+  		    	</div>
+  		  </div>
+        <div class="form-group">
+            <label for="cc" class="col-sm-1 control-label">CC:</label>
+            <div class="col-sm-11">
+                <input  class="form-control select2-offscreen" id="CC" ng-model="vm.form.CC" placeholder="CC">
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="cco" class="col-sm-1 control-label">CCO:</label>
+            <div class="col-sm-11">
+                <input  class="form-control select2-offscreen" id="CCO" ng-model="vm.form.CCO" placeholder="CCO">
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="asunto" class="col-sm-1 control-label">Asunto</label>
+            <div class="col-sm-11">
+               <input class="form-control select2-offscreen" id="asunto" ng-model="vm.form.asunto" placeholder="Asunto">
+            </div>
+        </div>
+        <div class="form-group">
+          <textarea class="form-control" id="mensaje" ng-model="vm.form.mensaje"  name="body" rows="10" placeholder="Redactar email"></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary align-right">Enviar</button>
+        <a href="/" class="btn btn-danger">Cancelar</a>
+
+        <div class="alert alert-success" style="margin-top:18px;" ng-show="vm.success">
+          <a href="#" class="close" aria-label="close" title="Cerrar" ng-click="vm.success=false">×</a>
+          Se ha enviado correctamente el email
+        </div>
+        <div class="alert alert-danger" style="margin-top:18px;" ng-show="vm.error">
+            <a href="#" class="close" aria-label="close" title="Cerrar" ng-click="vm.error=false">×</a>
+            Se produjo un error, intente nuevamente.
+        </div>
+  		</form>
+  	  </div>
+  </div>
+
+
+</body>
