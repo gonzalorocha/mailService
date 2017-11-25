@@ -1,10 +1,10 @@
 angular
     .module('appInbox')
-    .service('inboxService', Serviceinbox);
+    .service('inboxService', inboxService);
 
 //funcion curring
-function Serviceinbox($http) {
-  this.obtenerMensajes =  function () {
+function inboxService($http) {
+  this.obtenerMensajes =  function() {
     return $http.get('/api/mensaje/getRecibidos').then(function(res) {
       return res.data;
       console.log(res.data);

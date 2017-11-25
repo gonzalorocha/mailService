@@ -14,6 +14,7 @@ angular
           console.log(err);
         });
       }
+      
       this.obtenerUsuarios =  function () {
         return $http.get('/api/usuario').then(function(res) {
           return res.data;
