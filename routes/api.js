@@ -6,6 +6,7 @@ var config                    = require('../config/config');
 var db                        = require('../modules/db/db');
 var usuario                   = require('../modules/api/usuario');
 var mensaje                   = require('../modules/api/mensaje');
+var localidad                   = require('../modules/api/localidad');
 
 
 var jwtCheck = jwt({
@@ -31,3 +32,6 @@ router.get('/mensaje/:id',mensaje.getById);
 router.post('/mensaje',mensaje.post);
 router.put('/mensaje/:id',mensaje.put);
 router.delete('/mensaje/:id',mensaje.delete);
+
+// router.get('/mensaje', jwtCheck, mensaje.get);
+router.get('/localidad',localidad.get);

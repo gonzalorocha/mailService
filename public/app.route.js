@@ -13,4 +13,9 @@ app.config(['$routeProvider', function($routeProvider) {
             controller: 'nuevoController',
             controllerAs: 'nc'
         })
+        .when('/registrar', {
+            templateUrl: '/views/mensaje/registrar.html',
+            controller: 'registroController',
+            controllerAs: 'rc'
+        })
 }]);

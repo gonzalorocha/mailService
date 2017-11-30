@@ -1,4 +1,3 @@
-
 <div class="mail-box">
     <aside class="sm-side">
         <div class="user-head">
@@ -15,6 +14,9 @@
         </div>
         <div class="inbox-body">
             <a href="../views/mensaje/nuevo.html" data-toggle="modal"  title="Compose" class="btn btn-compose"> Nuevo Email</a>
+        </div>
+        <div class="inbox-body">
+            <a href="../views/registro/registro.html" data-toggle="modal"  title="Compose" class="btn btn-compose"> Nuevo Usuario</a>
         </div>
         <ul class="nav nav-pills nav-stacked labels-info inbox-divider">
             <li> <h4>Carpetas</h4> </li>
@@ -58,7 +60,7 @@
                 </li>
             </ul>
         </div>
-        <form  class="inbox-body">
+        <form class="inbox-body">
             <table class="table table-inbox table-hover">
                 <thead>
                     <th>Marcar</th>
@@ -69,7 +71,7 @@
                 <tbody>
                     <tr ng-repeat="c in ic.mensaje | orderBy:'fecha'">
                     <td class="inbox-small-cells"> <input type="checkbox" class="mail-checkbox"> </td>
-                    <td class="view-message  dont-show">{{c.email}}</td>
+                    <td class="view-message ">{{c.email}}</td>
                     <td class="view-message ">{{c.asunto}}</td>
                     <td class="view-message ">{{c.fecha}}</td>
                 </tbody>

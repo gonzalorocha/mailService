@@ -11,6 +11,7 @@ function sanitize(data){
 module.exports.get = (req, res) => {
   db.get().query(queries.get, (err, rows) => {
     if(err) throw err;
+      console.log(err);
     res.send(sanitize(rows));
   })
 };
