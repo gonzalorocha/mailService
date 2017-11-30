@@ -1,2 +1,1 @@
-var app = angular.module('appMensajeNuevo',["angucomplete-alt"]);
-    
+var app = angular.module('app',['app.routes', 'angucomplete-alt']);

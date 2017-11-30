@@ -1,5 +1,5 @@
 angular
-    .module('appMensajeNuevo')
+    .module('app')
     .service('mensajeService', mensajeService);
 
     //funcion curring

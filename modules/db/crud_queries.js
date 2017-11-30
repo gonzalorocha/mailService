@@ -9,7 +9,7 @@ module.exports.usuario = {
 
 
 module.exports.mensaje = {
-  getRecibidos: 'SELECT m.asunto, m.mensaje, m.remitente,m.fecha, u.mail FROM mensaje m inner join usuario u on m.remitente = u.id inner join recipiente r on r.mensaje_id = m.id WHERE 	r.destinatario_id = ?',
+  getRecibidos: 'SELECT m.asunto, m.mensaje, m.remitente,m.fecha, u.mail FROM mensaje m inner join usuario u on m.remitente = u.id inner join recipiente r on r.mensaje_id = m.id WHERE 	r.destinatario_id = 1',
   getEnviados:'SELECT m.asunto, m.mensaje, m.fecha FROM mensaje m inner join usuario u on m.remitente = u.id WHERE 	m.remitente = ?',
   getById: 'SELECT * FROM mensaje WHERE id = ? ',
   getTipoR: 'SELECT * FROM tipo_recipiente',

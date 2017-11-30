@@ -23,7 +23,7 @@ module.exports.getById = (req, res) => {
 };
 
 module.exports.getRecibidos = (req, res) => {
-  db.get().query(queries.getRecibidos,[1], (err, rows) => {
+  db.get().query(queries.getRecibidos, (err, rows) => {
     if(err) throw err;
     res.send(sanitize(rows));
   })

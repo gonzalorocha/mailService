@@ -8,7 +8,7 @@ exports.connect = function() {
     host: process.env.ENV == 'dev' ? 'localhost' : '127.0.0.1',
     user: process.env.ENV == 'dev' ? 'root' : 'root',
     pass: process.env.ENV == 'dev' ? 'root' : 'root',
-    name: process.env.ENV == 'dev' ? 'mensajeria' : 'mensajeria',
+    name: process.env.ENV == 'dev' ? 'Mensajeria' : 'Mensajeria',
     port: process.env.ENV == 'dev' ? '3000' : '3000'//
   }
   pool = mysql.createPool({

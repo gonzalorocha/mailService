@@ -1,0 +1,28 @@
+<html ng-app="app">
+    <head>
+      <meta charset="utf-8">
+      <title>App</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.5/angular.min.js"></script>
+        <script src="angucomplete-alt.js"></script>       
+
+        <link href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet">
+        <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
+        <link href='http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css' rel='stylesheet prefetch' >
+        <link href="angucomplete-alt.css" rel="stylesheet">
+        
+        <script src="app.js"></script>
+
+        <script src="views/mensaje/controllers/nuevoController.js"></script>
+        <script src="views/index/controllers/indexController.js"></script>
+        
+        <script src="views/mensaje/service/mensaje_service.js"></script>
+        <script src="views/index/service/index_service.js"></script>
+        
+        <script src="app.route.js"></script>
+        <script src="angular-route.js"></script>
+    </head >
+    <body>
+        <div ng-view class="content"> </div>
+    </body>
+    
