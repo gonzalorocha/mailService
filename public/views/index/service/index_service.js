@@ -3,9 +3,10 @@ angular
     .service('inboxService', inboxService);
 
 //funcion curring
-function inboxService($http) {
+function inboxService($http, $rootScope) {
   this.obtenerMensajes =  function() {
-    return $http.get('/api/mensaje').then(function(res) {
+    id = $rootScope.user.id;
+    return $http.get('/api/mensaje/getRecibidos/' + id).then(function(res) {
       return res.data;
       console.log(res.data);
     }).catch(function(err){

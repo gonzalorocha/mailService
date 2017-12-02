@@ -1,4 +1,4 @@
-<div class="mail-box">
+<div class="mail-box col-md-3" style="padding: 0">
     <aside class="sm-side">
         <div class="user-head">
             <a class="inbox-avatar" href="javascript:;">
@@ -8,15 +8,9 @@
                 <h5><a href="#">Gonzalo Rocha</a></h5>
                 <span><a href="#">gonzalorocha1990@Gmail.com</a></span>
             </div>
-            <a class="mail-dropdown pull-right" href="javascript:;">
-                <i class="fa fa-chevron-down"></i>
-            </a>
         </div>
         <div class="inbox-body">
-            <a href="../views/mensaje/nuevo.html" data-toggle="modal"  title="Compose" class="btn btn-compose"> Nuevo Email</a>
-        </div>
-        <div class="inbox-body">
-            <a href="../views/registro/registro.html" data-toggle="modal"  title="Compose" class="btn btn-compose"> Nuevo Usuario</a>
+            <a href="nuevo" data-toggle="modal"  title="Compose" class="btn btn-compose"> Nuevo Email</a>
         </div>
         <ul class="nav nav-pills nav-stacked labels-info inbox-divider">
             <li> <h4>Carpetas</h4> </li>
@@ -25,14 +19,14 @@
         </ul>
     </aside>
 </div>
-<div>
+<div class="col-md-9" style="padding: 0">
     <aside class="lg-side">
         <div class="inbox-head">
             <h3>Inbox</h3>
             <form action="#" class="pull-right position">
                 <div class="input-append">
-                    <input type="text" class="sr-input" placeholder="Search Mail">
-                    <button class="btn sr-btn" type="button"><i class="fa fa-search"></i></button>
+                    <input type="text" class="sr-input" placeholder="Search Mail" ng-model="vm.search">
+                    <button class="btn btn-danger" type="button">LOG-OUT</button>
                 </div>
             </form>
         </div>
@@ -69,11 +63,11 @@
                     <th>Fecha</th>
                 </thead>
                 <tbody>
-                    <tr ng-repeat="c in ic.mensaje | orderBy:'fecha'">
+                    <tr ng-repeat="c in ic.mensaje | orderBy:'fecha' | filter:vm.search">
                     <td class="inbox-small-cells"> <input type="checkbox" class="mail-checkbox"> </td>
                     <td class="view-message ">{{c.email}}</td>
                     <td class="view-message ">{{c.asunto}}</td>
-                    <td class="view-message ">{{c.fecha}}</td>
+                    <td class="view-message ">{{c.fecha | date:'dd/MM/yyyy hh:mm'}}</td>
                 </tbody>
             </table>
         </form> 

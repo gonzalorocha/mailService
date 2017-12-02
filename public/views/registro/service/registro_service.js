@@ -3,20 +3,21 @@ angular
 .service('registroService', registroService);
 
 //funcion curring
-function registroService($http) {
-    this.crearUsuario =  function (usuario) {
-    var usuarioNuevo = usuario;
-    $http.post('/api/usuario', usuarioNuevo).then(function(res) {
-        console.log('Usuario Creado');
-    }).catch(function(err){
-        console.log(err);
-    });
-    }
-    this.obtenerLocalidad =  function () {
-        return $http.get('/api/localidad').then(function(res) {
-          return res.data;
+function registroService($http, $location) {
+    this.crearUsuario = function (usuario) {
+        var usuarioNuevo = usuario;
+        $http.post('/api/usuario', usuarioNuevo).then(function(res) {
+            console.log('Usuario Creado');
+            alert('usuario creado correctamente');
+            $location.path('/')
         }).catch(function(err){
-          console.log(err);
+            console.log(err);
         });
-      }
+    }
+    this.obtenerProvincias =  function () {
+        var response = $http.get('ciudades-argentinas.json').then(function(res){
+            return res.data;
+        });
+        return response;
+    }
 }

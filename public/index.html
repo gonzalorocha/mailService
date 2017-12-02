@@ -5,23 +5,29 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.5/angular.min.js"></script>
         <script src="angucomplete-alt.js"></script>       
+        <base href="/">
 
-        <link href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet">
-        <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
-        <link href='http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css' rel='stylesheet prefetch'>
         <link href="angucomplete-alt.css" rel="stylesheet">
+        <link href="css/login.css" rel="stylesheet">
+        <link href="css/indexStyle.css" rel="stylesheet">
         
         <script src="app.js"></script>
 
+        <link href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet">
+        <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
+
         <script src="views/mensaje/controllers/nuevoController.js"></script>
         <script src="views/index/controllers/indexController.js"></script>
-        
+        <script src="views/registro/service/registro_service.js"></script>
+        <script src="views/registro/controllers/registroController.js"></script>
+        <script src="views/login/controllers/loginController.js"></script>
+        <script src="views/login/service/login_service.js"></script>
         <script src="views/mensaje/service/mensaje_service.js"></script>
         <script src="views/index/service/index_service.js"></script>
         
         <script src="app.route.js"></script>
         <script src="angular-route.js"></script>
-    </head >
+    </head>
     <body>
         <div ng-view class="content"> </div>
     </body>

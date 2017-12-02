@@ -2,7 +2,7 @@
 <div class="panel-body message">
     <div class="container">
     <form class="form-horizontal" ng-submit="nc.submit()">
-    <p class="text-center">Nuevo</p>
+    <h4 class="text-center">Nuevo Email</h4>
     <div class="form-group">
             <label for="para" class="col-sm-1 control-label">Para:</label>
             <div class="col-sm-11">
@@ -39,16 +39,7 @@
         <textarea class="form-control" id="mensaje" ng-model="nc.form.mensaje"  name="body" rows="10" placeholder="Redactar email"></textarea>
     </div>
     <button type="submit" class="btn btn-primary align-right">Enviar</button>
-    <a href="/" class="btn btn-danger">Cancelar</a>
-
-    <div class="alert alert-success" style="margin-top:18px;" ng-show="nc.success">
-        <a href="#" class="close" aria-label="close" title="Cerrar" ng-click="nc.success=false">×</a>
-        Se ha enviado correctamente el email
-    </div>
-    <div class="alert alert-danger" style="margin-top:18px;" ng-show="nc.error">
-        <a href="#" class="close" aria-label="close" title="Cerrar" ng-click="nc.error=false">×</a>
-        Se produjo un error, intente nuevamente.
-    </div>
+    <a href="index" class="btn btn-danger">Cancelar</a>
     </form>
     </div>
 </div>

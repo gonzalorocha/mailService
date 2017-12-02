@@ -24,14 +24,14 @@ module.exports.getById = (req, res) => {
 };
 
 module.exports.getRecibidos = (req, res) => {
-  db.get().query(queries.getRecibidos, (err, rows) => {
+  db.get().query(queries.getRecibidos,[req.params.id] ,(err, rows) => {
     if(err) throw err;
     res.send(sanitize(rows));
   })
 };
 
 module.exports.post = (req, res) => {
-  db.get().query(queries.post,{asunto: req.body.asunto, mensaje: req.body.mensaje, remitente: 1, fecha: new Date()}, (err, result)=> {
+  db.get().query(queries.post,{asunto: req.body.asunto, mensaje: req.body.mensaje, remitente: req.body.remitente_id, fecha: new Date()}, (err, result)=> {
     let id = result.insertId;
     console.log(id);
     console.log(req.body.remitente.originalObject);

@@ -1,9 +1,9 @@
 var app = angular.module('app.routes', ['ngRoute']);
 
-app.config(['$routeProvider', function($routeProvider) {
+app.config(['$routeProvider', '$locationProvider', function($routeProvider, $locationProvider) {
     $routeProvider
         //Configuro las rutas para los diferentes html
-        .when('/', {
+        .when('/index', {
             templateUrl: '/views/index/index.html',
             controller: 'indexController',
             controllerAs: 'ic'
@@ -14,8 +14,15 @@ app.config(['$routeProvider', function($routeProvider) {
             controllerAs: 'nc'
         })
         .when('/registrar', {
-            templateUrl: '/views/mensaje/registrar.html',
+            templateUrl: '/views/registro/registro.html',
             controller: 'registroController',
             controllerAs: 'rc'
         })
+        .when('/', {
+            templateUrl: '/views/login/login.html',
+            controller: 'loginController',
+            controllerAs: 'lc'
+        })
+
+    $locationProvider.html5Mode(true);
 }]);

@@ -1,45 +1,57 @@
-<div class="container">    
-  <div id="loginbox" style="margin-top:50px;" class="mainbox col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2">                    
-    <div class="panel panel-info" >
+<div class="container">
+  <div id="loginbox" style="margin-top:50px;" class="mainbox col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2">
+    <div class="panel panel-info">
       <div class="panel-heading">
-          <center><div class="panel-title">Registro de Usuario</div></center>                        
-    </div>     
-    <div style="padding-top:30px" class="panel-body" >
-      <div style="display:none" id="login-alert" class="alert alert-danger col-sm-12"></div>
+        <center>
+          <div class="panel-title">Registro de Usuario</div>
+        </center>
+      </div>
+      <div style="padding-top:30px" class="panel-body">
+        <div style="display:none" id="login-alert" class="alert alert-danger col-sm-12"></div>
         <form id="registerform" class="form-horizontal" role="form" ng-submit="rc.submit()">
           <div style="margin-bottom: 25px" class="input-group">
-             <label for="Usuario:" class="col-sm-1 control-label">Usuario:</label>
-            <input id="register-usuario" type="text" class="form-control" name="usuario" value="" placeholder="Usuario.">                                        
+            <label for="Usuario:" class="col-sm-1 control-label">Usuario:</label>
+            <input id="register-usuario" ng-model="rc.form.usuario" type="text" class="form-control" name="usuario" value="" placeholder="Usuario." required="required">
           </div>
           <div style="margin-bottom: 25px" class="input-group">
-             <label for="Nombre" class="col-sm-1 control-label">Nombre:</label>
-              <input id="register-nombre" type="text" class="form-control" name="nombre" value="" placeholder="Nombre">                                        
+            <label for="Nombre" class="col-sm-1 control-label">Nombre:</label>
+            <input id="register-nombre" ng-model="rc.form.nombre" type="text" class="form-control" name="nombre" value="" placeholder="Nombre" required="required">
           </div>
           <div style="margin-bottom: 25px" class="input-group">
-             <label for="Apellido" class="col-sm-1 control-label">Apellido:</label>
-            <input id="register-apellido" type="text" class="form-control" name="apellido" value="" placeholder="Apellido">                                        
+            <label for="Apellido" class="col-sm-1 control-label">Apellido:</label>
+            <input id="register-apellido" ng-model="rc.form.apellido" type="text" class="form-control" name="apellido" value="" placeholder="Apellido" required="required">
           </div>
           <div style="margin-bottom: 25px" class="input-group">
-             <label for="Dirección" class="col-sm-1 control-label">Dirección:</label>
-            <input id="register-direccion" type="text" class="form-control" name="direccion" value="" placeholder="Direccion">                                        
+            <label for="Dirección" class="col-sm-1 control-label">Dirección:</label>
+            <input id="register-direccion" ng-model="rc.form.direccion" type="text" class="form-control" name="direccion" value="" placeholder="Direccion" required="required">
           </div>
           <div style="margin-bottom: 25px" class="input-group">
-             <label for="Email" class="col-sm-1 control-label">Email</label>
-            <input id="register-mail" type="text" class="form-control" name="mail" value="" placeholder="Email">                                        
+            <label for="Email" class="col-sm-1 control-label">Email</label>
+            <input id="register-mail" ng-model="rc.form.mail" type="email" class="form-control" name="mail" value="" placeholder="Email" required="required">
           </div>
           <div style="margin-bottom: 25px" class="input-group">
-             <label for="telefono" class="col-sm-1 control-label">Telefono:</label>
-            <input id="register-telefono" type="text" class="form-control" name="telefono" value="" placeholder="Telefono">                                        
+            <label for="telefono" class="col-sm-1 control-label">Telefono:</label>
+            <input id="register-telefono" ng-model="rc.form.telefono" type="text" class="form-control" name="telefono" value="" placeholder="Telefono">
           </div>
           <div style="margin-bottom: 25px" class="input-group">
-             <label for="password" class="col-sm-1 control-label">Password:</label>
-            <input id="register-password" type="text" class="form-control" name="password" value="" placeholder="Password">                                        
+            <label for="password" class="col-sm-1 control-label">Password:</label>
+            <input id="register-password" ng-model="rc.form.password" type="password" class="form-control" name="password" value="" placeholder="Password" required="required">
           </div>
           <div style="margin-bottom: 25px" class="input-group" ng-value="rc.obtenerLocalidad">
-             <label for="cuidad" class="col-sm-1 control-label">Cuidad:</label>
-              <select id="register-cuidad_id" type="text" class="form-control" name="cuidad_id" value="" placeholder="cuidad">                                        
-            </div>
+            <label for="cuidad" class="col-sm-1 control-label">Provincia:</label>
+            <select ng-options="p as p.nombre for p in rc.provincias track by p.id" ng-change="rc.changeProvincia()" ng-model="rc.provinciaSelected"
+              id="register-provincia" type="text" class="form-control" name="provincia" value="" placeholder="Provincia">
+            </select>
+          </div>
+          <div style="margin-bottom: 25px" class="input-group" ng-value="rc.obtenerLocalidad" ng-if="rc.cities.length > 0">
+            <label for="cuidad" class="col-sm-1 control-label">Ciudad:</label>
+            <select ng-options="c as c.nombre for c in rc.cities track by c.id" id="register-cuidad_id" ng-model="rc.ciudadSelected"
+              ng-change="rc.changeCiudad()" type="text" class="form-control" name="cuidad_id" value="" placeholder="Ciudad">
+            </select>
+          </div>
+          <button type="submit" class="btn btn-primary align-right">Registrarse</button>
+          <a href="/" class="btn btn-danger">Volver atras</a>
         </form>
+      </div>
     </div>
-  </div>  
-</div>
+  </div>
