@@ -1,6 +1,6 @@
 angular
     .module('app')
-    .service('inboxService', inboxService);
+  .service('inboxService', inboxService);
 
 //funcion curring
 function inboxService($http, $rootScope) {
